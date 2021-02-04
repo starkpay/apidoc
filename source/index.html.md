@@ -19,7 +19,7 @@ search: true
 code_clipboard: true
 ---
 
-# Introduction
+# Introduction to Stark
 
 Welcome to the Stark API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
