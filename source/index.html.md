@@ -27,9 +27,9 @@ This documentation will be updated on a regular basis. Please check back for upd
 
 ### Getting started
 
-• Create a new account or login at: https://dashboard.starkpayments.net
-• Complete your Profile and Business Details
-• Generate a Test or Live API key
+• Create a new account or login at: https://dashboard.starkpayments.net <br>
+• Complete your Profile and Business Details <br>
+• Generate a Test or Live API key <br>
 
 # Authentication
 
