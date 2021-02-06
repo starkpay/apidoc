@@ -25,6 +25,12 @@ Welcome to Stark's API and developer documentation. You will find useful guides,
 
 This documentation will be updated on a regular basis. Please check back for updates.
 
+### Getting started
+
+• Create a new account or login at: https://dashboard.starkpayments.net
+• Complete your Profile and Business Details
+• Generate a Test or Live API key
+
 # Authentication
 
 > To authorize, use this code:
