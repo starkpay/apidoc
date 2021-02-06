@@ -21,15 +21,19 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to Stark's API and developer documentation. You will find useful guides, code examples and links to SDKs that will enable you easily create crypto payment requests, configuring webhooks as well as installation and set up information.
+Welcome to Stark's API and developer documentation. Here you will find useful guides, code examples and links to SDKs that will enable you to easily create crypto payment requests, configure webhooks as well as installation and set up information.
+
+Stark currently supports the processing of Bitcoin, Ethereum, BitcoinCash, Litecoin and Dash. We are currently working on an advanced integration to have XRP available to merchants.
+
+A Bitcoin Testnet is also available for anyone looking to test bitcoin transactions without having to physically transfer bitcoin.
 
 This documentation will be updated on a regular basis. Please check back for updates.
 
 ### Getting started
 
-- • Create a new account or login at: <a href='https://dashboard.starkpayments.net'> Stark Merchant Dashboard</a>
-- • Complete your Profile and Business Details
-- • Generate a Test or Live API key
+- Create a new account or login at: <a href='https://dashboard.starkpayments.net'> Stark Merchant Dashboard</a>
+- Complete your Profile and Business Details
+- Generate a Test or Live API key
 
 # Authentication
 
