@@ -25,10 +25,10 @@ under the License.
 ////////////////////
 $nav-bg: #F6F7F9 !default;
 $examples-bg: #06182C !default;
-$code-bg: #1E2224 !default;
-$code-annotation-bg: #191D1F !default;
+$code-bg: #06182C !default;
+$code-annotation-bg: #0A2540 !default;
 $nav-subitem-bg: #F6F7F9 !default;
-$nav-active-bg: #438AFE !default;
+$nav-active-bg: #0A2540 !default;
 $nav-active-parent-bg: #F6F7F9 !default; // parent links of the current section
 $lang-select-border: #000 !default;
 $lang-select-bg: #0A2540 !default;
@@ -46,7 +46,7 @@ $search-notice-bg: #c97a7e !default;
 $main-text: #333 !default; // main content text color
 $nav-text: #606B76 !default;
 $nav-active-text: #FFF !default;
-$nav-active-parent-text: #fff !default; // parent links of the current section
+$nav-active-parent-text: #606B76 !default; // parent links of the current section
 $lang-select-text: #8095FF !default; // color of unselected language tab text
 $lang-select-active-text: #00D4FF !default; // color of selected language tab text
 $lang-select-pressed-text: #FFF !default; // color of language tab text when mouse is pressed
