@@ -40,7 +40,7 @@ Before you get started with implementing our API, it's important to first create
 
 # Payment API
 
-This API allows developer's to Create Payment and retrieve Transaction Details.
+This API allows developer's to Create Payments and retrieve Transaction Details.
 
 ## Create Payment
 
