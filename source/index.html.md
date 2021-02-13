@@ -38,6 +38,18 @@ Before you get started with implementing our API, it's important to first create
 - Add a Business + Website URL
 - Generate a Test or Live API key
 
+# Payment API
+
+This API allows developer's to Create Payment and retrieve Transaction Details.
+
+## Create Payment
+
+Stark currently supports the processing of Bitcoin, Ethereum, BitcoinCash, Litecoin and Dash. We are currently working on an advanced integration to have XRP available to merchants.
+
+## Transaction Details
+
+Stark currently supports the processing of Bitcoin, Ethereum, BitcoinCash, Litecoin and Dash. We are currently working on an advanced integration to have XRP available to merchants.
+
 # Authentication
 
 > To authorize, use this code:
