@@ -153,8 +153,9 @@ html, body {
 
   // This is the currently selected ToC entry
   .toc-link.active {
-    background-color: $nav-active-bg;
-    color: $nav-active-text;
+    /*background-color: $nav-active-bg;
+    color: $nav-active-text;*/
+    text-decoration:underline;
   }
 
   // this is parent links of the currently selected ToC entry
@@ -207,6 +208,7 @@ html, body {
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
+  &:hover { text-decoration:underline; }
 }
 
 // button to show navigation on mobile devices
