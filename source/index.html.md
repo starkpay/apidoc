@@ -6,7 +6,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - python
   - javascript
-  - csharp
+  - C#
+
 toc_footers:
   - <a href='https://dashboard.starkpayments.net'>Get an API Key</a>
 
@@ -37,6 +38,7 @@ Before you get started with implementing our API, it's important to first create
 - Complete your Profile
 - Add a Business + Website URL
 - Generate a Test or Live API key
+
 
 # Payment API
 
@@ -78,6 +80,24 @@ const kittn = require('kittn');
 let api = kittn.authorize('meowmeowmeow');
 ```
 
+```C#
+CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
+if (txtData != null)
+{
+if (txtData.success)
+{
+Preferences.Set("transactionId", txtData.transactionId);
+Preferences.Set("amount", txtData.amount);
+Preferences.Set("status", txtData.status);
+Preferences.Set("mode", txtData.mode);
+Preferences.Set("links", txtData.links);
+Preferences.Set("qrcodetext", txtData.qrcodetext);
+_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
+//Device.OpenUri(new Uri(txtData.links));
+}
+else
+```
+
 > Make sure to replace `meowmeowmeow` with your API key.
 
 Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
@@ -90,9 +110,9 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Libraries
+# Kittens
 
-## Xamarin SDK
+## Get All Kittens
 
 ```ruby
 require 'kittn'
@@ -141,70 +161,64 @@ let kittens = api.kittens.get();
 ]
 ```
 
-Before you start using the Xamarin SDK for Android or iOS, You need to have an Account with Stark and a store along with an API key created VIA our Dashboard.
+This endpoint retrieves all kittens.
 
-### Quickstart
+### HTTP Request
 
+`GET http://example.com/api/kittens`
 
+### Query Parameters
 
-Steps | Description
+Parameter | Default | Description
 --------- | ------- | -----------
-1 |Prepare the Project | 
-2 |Set up the Sample |
-3 |Run the Sample |
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
 
-### Preqreuisites
-<ul>
-  <li>Visual Studio 2013 or later</li>
-  <li>Starkpayments account with a store and an API key</li>
-</ul>
-###  Prepare the Project
-To use this SDK, you need to have the following prerequisites: <br>
-<ul>
-  <li>Create a new C# Xamarin Application in Visual Studio</li>
-  <li>Open the Nuget Package Manager Console, Select the package source nuget.org, and run the following command:</li>
-</ul>
 <aside class="success">
-Install-Package Coinstream-payments
+Remember — a happy kitten is an authenticated kitten!
 </aside>
-### Set up the Sample
-After successful installation of the nuget package, call in the Starkpayments' SDK's methods to Create or GET a transaction as the example on the right
 
-    ```csharp
-        CreateTransaction createtxt = new CreateTransaction();
-createtxt.amount = amount.Text.ToString();
-createtxt.currency = selectedcurrency;
-createtxt.description = description.Text.ToString();
-createtxt.redirectUrl = redirectUrl.Text.ToString();
-createtxt.reference = reference.Text.ToString();
-dynamic txtData = Transaction.CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
-if (txtData != null)
-{
-if (txtData.success)
-{
-Preferences.Set("transactionId", txtData.transactionId);
-Preferences.Set("amount", txtData.amount);
-Preferences.Set("status", txtData.status);
-Preferences.Set("mode", txtData.mode);
-Preferences.Set("links", txtData.links);
-Preferences.Set("qrcodetext", txtData.qrcodetext);
-_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
-//Device.OpenUri(new Uri(txtData.links));
-}
-else
-{
-String str = "";
-foreach (string field in txtData.metadata.fields)
-{
-str += field + "\n";
-}
-await DisplayAlert("Message", str + txtData.metadata.message, "OK");
-}
-}
-else
-{
-await DisplayAlert("Message", "Something went wrong!", "OK");
+## Get a Specific Kitten
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get(2)
 ```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get(2)
+```
+
+```shell
+curl "http://example.com/api/kittens/2" \
+  -H "Authorization: meowmeowmeow"
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
@@ -267,3 +281,4 @@ This endpoint deletes a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
+
