@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - python
   - javascript
+  - csharp
 
 toc_footers:
   - <a href='https://dashboard.starkpayments.net'>Get an API Key</a>
