@@ -39,23 +39,6 @@ Before you get started with implementing our API, it's important to first create
 - Add a Business + Website URL
 - Generate a Test or Live API key
 
-```C#
-CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
-if (txtData != null)
-{
-if (txtData.success)
-{
-Preferences.Set("transactionId", txtData.transactionId);
-Preferences.Set("amount", txtData.amount);
-Preferences.Set("status", txtData.status);
-Preferences.Set("mode", txtData.mode);
-Preferences.Set("links", txtData.links);
-Preferences.Set("qrcodetext", txtData.qrcodetext);
-_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
-//Device.OpenUri(new Uri(txtData.links));
-}
-else
-```
 
 # Payment API
 
@@ -95,6 +78,24 @@ curl "api_endpoint_here" \
 const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');
+```
+
+```C#
+CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
+if (txtData != null)
+{
+if (txtData.success)
+{
+Preferences.Set("transactionId", txtData.transactionId);
+Preferences.Set("amount", txtData.amount);
+Preferences.Set("status", txtData.status);
+Preferences.Set("mode", txtData.mode);
+Preferences.Set("links", txtData.links);
+Preferences.Set("qrcodetext", txtData.qrcodetext);
+_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
+//Device.OpenUri(new Uri(txtData.links));
+}
+else
 ```
 
 > Make sure to replace `meowmeowmeow` with your API key.
