@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;,&quot;C#&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;,&quot;csharp&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -305,7 +305,7 @@
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
-              <a href="#" data-language-name="C#">C#</a>
+              <a href="#" data-language-name="csharp">csharp</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -399,21 +399,21 @@ curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
-if (txtData != null)
-{
-if (txtData.success)
-{
-Preferences.Set("transactionId", txtData.transactionId);
-Preferences.Set("amount", txtData.amount);
-Preferences.Set("status", txtData.status);
-Preferences.Set("mode", txtData.mode);
-Preferences.Set("links", txtData.links);
-Preferences.Set("qrcodetext", txtData.qrcodetext);
-_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
-//Device.OpenUri(new Uri(txtData.links));
-}
-else
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="nf">CreateTransaction</span><span class="p">(</span><span class="s">"key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce"</span><span class="p">,</span><span class="n">createtxt</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">txtData</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">txtData</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">Preferences</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">"transactionId"</span><span class="p">,</span> <span class="n">txtData</span><span class="p">.</span><span class="n">transactionId</span><span class="p">);</span>
+<span class="n">Preferences</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">"amount"</span><span class="p">,</span> <span class="n">txtData</span><span class="p">.</span><span class="n">amount</span><span class="p">);</span>
+<span class="n">Preferences</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">"status"</span><span class="p">,</span> <span class="n">txtData</span><span class="p">.</span><span class="n">status</span><span class="p">);</span>
+<span class="n">Preferences</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">"mode"</span><span class="p">,</span> <span class="n">txtData</span><span class="p">.</span><span class="n">mode</span><span class="p">);</span>
+<span class="n">Preferences</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">"links"</span><span class="p">,</span> <span class="n">txtData</span><span class="p">.</span><span class="n">links</span><span class="p">);</span>
+<span class="n">Preferences</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">"qrcodetext"</span><span class="p">,</span> <span class="n">txtData</span><span class="p">.</span><span class="n">qrcodetext</span><span class="p">);</span>
+<span class="n">_</span> <span class="p">=</span> <span class="n">PopupNavigation</span><span class="p">.</span><span class="nf">PushAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">Popups</span><span class="p">.</span><span class="nf">PopupViewTransaction</span><span class="p">());</span>
+<span class="c1">//Device.OpenUri(new Uri(txtData.links));</span>
+<span class="p">}</span>
+<span class="k">else</span>
 </code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
@@ -637,7 +637,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
-                <a href="#" data-language-name="C#">C#</a>
+                <a href="#" data-language-name="csharp">csharp</a>
           </div>
       </div>
     </div>
