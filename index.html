@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;,&quot;csharp&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;,&quot;C#&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -305,7 +305,7 @@
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
-              <a href="#" data-language-name="csharp">csharp</a>
+              <a href="#" data-language-name="C#">C#</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -377,7 +377,22 @@
 <li>Add a Business + Website URL</li>
 <li>Generate a Test or Live API key</li>
 </ul>
-<h1 id='payment-api'>Payment API</h1>
+<div class="highlight"><pre class="highlight plaintext"><code>CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
+if (txtData != null)
+{
+if (txtData.success)
+{
+Preferences.Set("transactionId", txtData.transactionId);
+Preferences.Set("amount", txtData.amount);
+Preferences.Set("status", txtData.status);
+Preferences.Set("mode", txtData.mode);
+Preferences.Set("links", txtData.links);
+Preferences.Set("qrcodetext", txtData.qrcodetext);
+_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
+//Device.OpenUri(new Uri(txtData.links));
+}
+else
+</code></pre></div><h1 id='payment-api'>Payment API</h1>
 <p>This API allows developer&#39;s to Create Payments and retrieve Transaction Details.</p>
 <h2 id='create-payment'>Create Payment</h2>
 <p>Stark currently supports the processing of Bitcoin, Ethereum, BitcoinCash, Litecoin and Dash. We are currently working on an advanced integration to have XRP available to merchants.</p>
@@ -622,7 +637,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
-                <a href="#" data-language-name="csharp">csharp</a>
+                <a href="#" data-language-name="C#">C#</a>
           </div>
       </div>
     </div>
