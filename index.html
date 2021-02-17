@@ -377,22 +377,7 @@
 <li>Add a Business + Website URL</li>
 <li>Generate a Test or Live API key</li>
 </ul>
-<div class="highlight"><pre class="highlight plaintext"><code>CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
-if (txtData != null)
-{
-if (txtData.success)
-{
-Preferences.Set("transactionId", txtData.transactionId);
-Preferences.Set("amount", txtData.amount);
-Preferences.Set("status", txtData.status);
-Preferences.Set("mode", txtData.mode);
-Preferences.Set("links", txtData.links);
-Preferences.Set("qrcodetext", txtData.qrcodetext);
-_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
-//Device.OpenUri(new Uri(txtData.links));
-}
-else
-</code></pre></div><h1 id='payment-api'>Payment API</h1>
+<h1 id='payment-api'>Payment API</h1>
 <p>This API allows developer&#39;s to Create Payments and retrieve Transaction Details.</p>
 <h2 id='create-payment'>Create Payment</h2>
 <p>Stark currently supports the processing of Bitcoin, Ethereum, BitcoinCash, Litecoin and Dash. We are currently working on an advanced integration to have XRP available to merchants.</p>
@@ -414,6 +399,21 @@ curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
+if (txtData != null)
+{
+if (txtData.success)
+{
+Preferences.Set("transactionId", txtData.transactionId);
+Preferences.Set("amount", txtData.amount);
+Preferences.Set("status", txtData.status);
+Preferences.Set("mode", txtData.mode);
+Preferences.Set("links", txtData.links);
+Preferences.Set("qrcodetext", txtData.qrcodetext);
+_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
+//Device.OpenUri(new Uri(txtData.links));
+}
+else
 </code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
