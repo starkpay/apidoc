@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - python
   - javascript
-  - C#
+  - csharp
 
 toc_footers:
   - <a href='https://dashboard.starkpayments.net'>Get an API Key</a>
@@ -80,7 +80,7 @@ const kittn = require('kittn');
 let api = kittn.authorize('meowmeowmeow');
 ```
 
-```C#
+```csharp
 CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
 if (txtData != null)
 {
