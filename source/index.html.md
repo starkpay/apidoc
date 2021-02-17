@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - python
   - javascript
-  - C#
+  - csharp
 toc_footers:
   - <a href='https://dashboard.starkpayments.net'>Get an API Key</a>
 
@@ -170,7 +170,7 @@ Install-Package Coinstream-payments
 ### Set up the Sample
 After successful installation of the nuget package, call in the Starkpayments' SDK's methods to Create or GET a transaction as the example on the right
 
-    ```C#
+    ```csharp
         CreateTransaction createtxt = new CreateTransaction();
 createtxt.amount = amount.Text.ToString();
 createtxt.currency = selectedcurrency;
