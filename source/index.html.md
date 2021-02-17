@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - python
   - javascript
-
+  - csharp
 toc_footers:
   - <a href='https://dashboard.starkpayments.net'>Get an API Key</a>
 
@@ -90,175 +90,120 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Kittens
+# Libraries
 
-## Get All Kittens
+## Xamarin SDK
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+```csharp
+CreateTransaction createtxt = new CreateTransaction();
+createtxt.amount = amount.Text.ToString();
+createtxt.currency = selectedcurrency;
+createtxt.description = description.Text.ToString();
+createtxt.redirectUrl = redirectUrl.Text.ToString();
+createtxt.reference = reference.Text.ToString();
+dynamic txtData = Transaction.CreateTransaction("key_test_bc60487f0cb789d79e281359d21e9eb7321a16ce",createtxt);
+if (txtData != null)
+{
+if (txtData.success)
+{
+Preferences.Set("transactionId", txtData.transactionId);
+Preferences.Set("amount", txtData.amount);
+Preferences.Set("status", txtData.status);
+Preferences.Set("mode", txtData.mode);
+Preferences.Set("links", txtData.links);
+Preferences.Set("qrcodetext", txtData.qrcodetext);
+_ = PopupNavigation.PushAsync(new Popups.PopupViewTransaction());
+}
+else
+{
+String str = "";
+foreach (string field in txtData.metadata.fields)
+{
+str += field + "\n";
+}
+await DisplayAlert("Message", str + txtData.metadata.message, "OK");
+}
+}
+else
+{
+await DisplayAlert("Message", "Something went wrong!", "OK");
 ```
 
-```python
-import kittn
+Before you start using the Xamarin SDK for Android or iOS, You need to have an Account with Stark and a store along with an API key created VIA our Dashboard.
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+### Quickstart
+
+```csharp
+<StackLayout Margin="30" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+<Label FontSize="30" HorizontalOptions="CenterAndExpand">Transaction Detail</Label>
+<StackLayout Orientation="Horizontal">
+<Label FontSize="20">TransactionId :</Label>
+<Label x:Name="transactionId" FontSize="20">null</Label>
+</StackLayout>
+<StackLayout Orientation="Horizontal">
+<Label FontSize="20">Amount :</Label>
+<Label x:Name="amount" FontSize="20">null</Label>
+</StackLayout>
+<StackLayout Orientation="Horizontal">
+<Label FontSize="20">status :</Label>
+<Label x:Name="status" FontSize="20">null</Label>
+</StackLayout>
+<StackLayout Orientation="Horizontal">
+<Label FontSize="20">Mode:</Label>
+<Label x:Name="mode" FontSize="20">null</Label>
+</StackLayout>
+
+<forms:ZXingBarcodeImageView
+x:Name="generatedqrcode"
+BarcodeFormat="QR_CODE"
+BarcodeValue="1234"
+HeightRequest="300"
+WidthRequest="300">
+<zx:ZXingBarcodeImageView.BarcodeOptions>
+<zxcm:EncodingOptions Width="300" Height="300"/>
+</zx:ZXingBarcodeImageView.BarcodeOptions>
+</forms:ZXingBarcodeImageView>
+<Button x:Name="paytransaction" Text="Pay" BackgroundColor="RoyalBlue" BorderWidth="1" TextColor="White" BorderColor="DarkBlue" Clicked="paytransaction_Clicked" CornerRadius="15"/>
+</StackLayout>
+</StackLayout>
+</pages:PopupPage>
 ```
 
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
+Steps | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+1 |Prepare the Project | 
+2 |Set up the Sample |
+3 |Run the Sample |
 
+### Preqreuisites
+<ul>
+  <li>Visual Studio 2013 or later</li>
+  <li>Starkpayments account with a store and an API key</li>
+</ul>
+
+###  Prepare the Project
+
+To use this SDK, you need to have the following prerequisites: 
+<ul>
+  <li>Create a new C# Xamarin Application in Visual Studio</li>
+  <li>Open the Nuget Package Manager Console, Select the package source nuget.org, and run the following command:</li>
+</ul>
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Install-Package Coinstream-payments
 </aside>
 
-## Get a Specific Kitten
+### Set up the Sample
+After successful installation of the nuget package, call in the Starkpayments' SDK's methods to Create or GET a transaction like the example to the right.
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+Stark's Payment SDK for Xamarin uses ZXING library as a dependency to generate the QrCodes on the runtime and display them on the app. To achieve that , Simply pass the amount to the method using the View element as:
 
-```python
-import kittn
+### Run the Sample
+Once the Package is integrated with your Application, build and run the sample by clicking start in the Visual studio toolbar. You should now be able to Create transactions with QrCodes and Get the desired transactions.
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
