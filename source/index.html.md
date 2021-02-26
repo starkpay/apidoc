@@ -203,6 +203,64 @@ Stark's Payment SDK for Xamarin uses ZXING library as a dependency to generate t
 ### Run the Sample
 Once the Package is integrated with your Application, build and run the sample by clicking start in the Visual studio toolbar. You should now be able to Create transactions with QrCodes and Get the desired transactions.
 
+## React-Native SDK
+
+
+Before you start using the React-Native SDK for Android or iOS, You need to have an Account with Stark and a store along with an API key created VIA our Dashboard.
+
+### Quickstart
+
+```javascript
+import React from 'react';
+import {View} from 'react-native';
+import Coinstream from 'react-native-coinstream';
+ 
+const App = () => {
+
+  const coinstream = new Coinstream();
+  coinstream.getTransaction(api_key, tra_id); //Pass in the API key and transaction ID
+  //Or you can Create a Payment link VIA
+  coinstream.createPayment(api_key, _amount,_currency, _description,_redirectUrl, _reference);
+ // You can also generate the on-the-go QR code of the payment have it displayed VIA
+   return (
+   <View style = {styles.container}>    
+    <Coinstream amount={'10'} currency={'LTC'}/> 
+   </View>
+  ); // Pass in the Desired Amount and Currency such as LTC, BTC etc.
+}
+```
+
+
+Steps | Description
+--------- | ------- | -----------
+1 |Prepare the Project | 
+2 |Set up the Sample |
+3 |Run the Sample |
+
+### Preqreuisites
+<ul>
+  <li>Visual Studio Code or any Code Editor</li>
+  <li>Starkpayments account with a store and an API key</li>
+</ul>
+
+###  Prepare the Project
+
+To use this SDK, you need to have the following prerequisites: 
+<ul>
+  <li>Create a new React-Native Application</li>
+  <li>Run the follow command to fetch the latest React-native coinstream package from NPM</li>
+</ul>
+<aside class="success">
+npm i react-native-coinstream
+</aside>
+
+### Set up the Sample
+After successful installation of the Coinstream package, call in the SDK's methods to Create or GET a transaction like the example to the right.
+
+You can Also Generate a LIVE QR code for the payment by passing in the amount and currency, as shown in the sample.
+### Run the Sample
+Once the Package is integrated with your Application, build and run the sample by running your react-native application. You should now be able to Create transactions with QrCodes and Get the desired transactions.
+
 
 
 
